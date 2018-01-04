@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  vehicle_model: one
+  license_plate: MyString
+  vehicle_color: one
+
+two:
+  person: two
+  vehicle_model: two
+  license_plate: MyString
+  vehicle_color: two

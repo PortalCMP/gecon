@@ -1,5 +1,5 @@
 class AddPersonTypeToPeople < ActiveRecord::Migration[5.1]
   def change
-    add_column :people, :person_type_id, :integer
+    add_reference :people, :person_type, foreign_key: true
   end
 end

@@ -13,4 +13,10 @@ ActiveAdmin.register Apartment do
 #   permitted
 # end
 
+  sidebar "Apartment Details", only: [:show, :edit] do
+    ul do
+      li link_to "People", admin_apartment_people_path(resource)
+    end
+  end
+
 end

@@ -1,5 +1,7 @@
 ActiveAdmin.register Person do
 	permit_params :name, :gender, :birth_date, :cellphone, :email, :apartment_id, :person_type
+  belongs_to :apartment, optional: true
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

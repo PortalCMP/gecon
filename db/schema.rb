@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180105014626) do
     t.datetime "updated_at", null: false
     t.integer "person_type_id"
     t.index ["apartment_id"], name: "index_people_on_apartment_id"
+    t.index ["person_type_id"], name: "index_people_on_person_type_id"
   end
 
   create_table "person_types", force: :cascade do |t|

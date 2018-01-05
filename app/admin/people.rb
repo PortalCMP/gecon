@@ -1,5 +1,5 @@
 ActiveAdmin.register Person do
-	permit_params :name, :gender, :birth_date, :cellphone, :email, :apartment_id, :person_type
+	permit_params :name, :gender, :birth_date, :cellphone, :email, :apartment_id, :person_type_id
   belongs_to :apartment, optional: true
 
 # See permitted parameters documentation:

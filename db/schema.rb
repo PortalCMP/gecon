@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104061223) do
+ActiveRecord::Schema.define(version: 20180105014626) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(version: 20180104061223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role"
+    t.string "username"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_admin_users_on_username", unique: true
   end
 
   create_table "apartments", force: :cascade do |t|
@@ -53,14 +55,6 @@ ActiveRecord::Schema.define(version: 20180104061223) do
   end
 
   create_table "blocks", force: :cascade do |t|
-    t.string "name"
-    t.integer "condominia_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["condominia_id"], name: "index_blocks_on_condominia_id"
-  end
-
-  create_table "condominia", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,6 +69,7 @@ ActiveRecord::Schema.define(version: 20180104061223) do
     t.integer "apartment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "person_type_id"
     t.index ["apartment_id"], name: "index_people_on_apartment_id"
   end
 

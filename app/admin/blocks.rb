@@ -1,4 +1,5 @@
 ActiveAdmin.register Block do
+  permit_params :name
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -11,5 +12,13 @@ ActiveAdmin.register Block do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+
+  # form do |f|
+  #   f.inputs do
+  #     f.input :condominia_id, as: :select
+  #     f.input :name
+  #   end
+  #   f.actions
+  # end
 
 end

@@ -31,4 +31,9 @@ ActiveAdmin.register Person do
     f.actions
   end
 
+  collection_action :autocomplete, method: :get do
+    people = Person.where('LOWER(name) LIKE ?', "#{params[:term]}%")
+    render json: people, each_serializer: AutocompleteSerializer, root: false
+  end
+
 end

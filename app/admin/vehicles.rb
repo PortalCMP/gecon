@@ -1,4 +1,7 @@
 ActiveAdmin.register Vehicle do
+	require 'net/http'
+	require 'json'
+	permit_params :vehicle_model
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -11,5 +14,18 @@ ActiveAdmin.register Vehicle do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+
+
+  form do |f|
+	  url = "http://fipeapi.appspot.com/api/1/carros/marcas.json"
+		uri = URI(url)
+		response = Net::HTTP.get(uri)
+		@marcas = JSON.parse(response)
+
+    f.inputs do
+      f.input :vehicle_model, as: :select, collection: @marcas.map {|m| m['name'] }
+    end
+    f.actions
+  end
 
 end
